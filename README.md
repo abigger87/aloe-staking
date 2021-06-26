@@ -1,6 +1,7 @@
-# staking-bot-template
+# Staking Bot
 
-_Author: Aloe Capital LLC_
+_Original Author: [Aloe Capital LLC](https://github.com/Aloe-Capital)_
+_Adapted Version Author: [Andreas Bigger](https://github.com/abigger87) <bigger@usc.edu>_
 
 If you want to write a bot that submits trading range predictions to Aloe's
 Prediction Markets, but you've never worked with Web3 before, this is a great
@@ -14,7 +15,7 @@ so that you can **focus on predictions, statistics, and the like.**
 If you already have a relatively new version of Python installed, and you've used
 something like `pip`, `conda`, or `virtualenv` to install [`web3`](https://web3py.readthedocs.io/en/stable/index.html)
 then you probably don't need to install anything else. Skip to the
-[Environment Variables section](https://github.com/Aloe-Capital/staking-bot-template#Environment-Variables).
+[Environment Variables section](https://github.com/abigger87/aloe-staking#Environment-Variables).
 But if something isn't working or you just want to make sure you're using the same
 setup we are, read on.
 

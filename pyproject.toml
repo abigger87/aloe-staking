@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "staking-bot-template"
+name = "staking-bot"
 version = "0.1.0"
 description = ""
-authors = ["Aloe Capital LLC"]
+authors = ["Aloe Capital LLC", "Andreas Bigger <bigger@usc.edu>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -14,5 +14,5 @@ autopep8 = "^1.5.7"
 pytest = "^5.2"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=1.0.0", "setuptools"]
 build-backend = "poetry.core.masonry.api"
