@@ -1,1 +1,1 @@
-from staking_bot_template.predictors.example import Example
+from staking_bot.predictors.example import Example
