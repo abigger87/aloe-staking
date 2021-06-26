@@ -10,9 +10,9 @@ import warnings
 
 from web3 import Web3
 
-from staking_bot_template.contracts.bounds import Bounds
-from staking_bot_template.contracts.contract import Contract
-from staking_bot_template.contracts.proposal import Proposal
+from staking_bot.contracts.bounds import Bounds
+from staking_bot.contracts.contract import Contract
+from staking_bot.contracts.proposal import Proposal
 
 
 abi = None
@@ -44,7 +44,7 @@ class AloePredictions(Contract):
     def get_did_invert_prices(self) -> bool:
         '''Gets whether prices were inverted in the previous epoch'''
         return self._inner.functions.didInvertPrices().call()
-    
+
     def get_should_invert_prices(self) -> bool:
         '''Gets whether prices should be inverted for submissions in the current epoch'''
         return self._inner.functions.shouldInvertPrices().call()
@@ -80,7 +80,7 @@ class AloePredictions(Contract):
     def get_proposal(self, key: int) -> Proposal:
         '''Gets an existing proposal by key'''
         res = self._inner.functions.proposals(key).call()
-        
+
         epoch_current = self.get_epoch()
         epoch_proposal = res[1]
         inverted = False

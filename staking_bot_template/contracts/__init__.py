@@ -1,3 +1,0 @@
-from staking_bot_template.contracts.aloe_predictions import AloePredictions
-from staking_bot_template.contracts.bounds import Bounds
-from staking_bot_template.contracts.proposal import Proposal

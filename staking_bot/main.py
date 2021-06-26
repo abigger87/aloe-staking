@@ -11,8 +11,8 @@ from dotenv import load_dotenv
 from web3.gas_strategies.time_based import fast_gas_price_strategy
 from web3 import Web3
 
-from staking_bot_template.contracts import AloePredictions, Proposal
-from staking_bot_template.predictors import Example as ExamplePredictor
+from staking_bot.contracts import AloePredictions, Proposal
+from staking_bot.predictors import Predictor as MainPredictor
 
 
 def main():
@@ -35,7 +35,7 @@ def main():
     # - contract: The predictions market to which we'll be submitting proposals
     # - predictor: The algorithm to use for prediction
     contract = AloePredictions(os.environ['PREDICTIONS_CONTRACT_ADDRESS'], w3)
-    predictor = ExamplePredictor()
+    predictor = MainPredictor()
 
     epoch_of_most_recent_submission = None
 
@@ -73,10 +73,11 @@ def main():
 
             nonce = w3.eth.get_transaction_count(os.environ['ACCOUNT_ADDRESS'])
             gas_price = w3.eth.generate_gas_price()
-            
+
             # Send all of the proposals
             for proposal in proposals:
-                print(f'SUBMITTING: Lower: {proposal.bounds.lower}\tUpper: {proposal.bounds.upper}\tStake: {proposal.stake}')
+                print(
+                    f'SUBMITTING: Lower: {proposal.bounds.lower}\tUpper: {proposal.bounds.upper}\tStake: {proposal.stake}')
                 receipt = proposal.submit_to(contract)(
                     nonce,
                     gas_price,

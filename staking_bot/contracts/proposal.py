@@ -7,7 +7,7 @@ MIT License
 from typing import Optional
 import warnings
 
-from staking_bot_template.contracts.bounds import Bounds, inverted
+from staking_bot.contracts.bounds import Bounds, inverted
 
 
 class Proposal():
@@ -90,12 +90,14 @@ class Proposal():
                 'Attempt to submit already-submitted proposal. If you want another with the same bounds, call reset() and try again'
             )
             return
-        
+
         should_invert = contract.get_should_invert_prices()
-        bounds: Bounds = self.bounds if should_invert == self.bounds.are_inverted else inverted(self.bounds)
+        bounds: Bounds = self.bounds if should_invert == self.bounds.are_inverted else inverted(
+            self.bounds)
 
         def send(nonce: int, gasPrice: int, private_key: str):
-            txn = contract.build_txn_submit_proposal(bounds.lower, bounds.upper, self.stake, nonce, gasPrice)
+            txn = contract.build_txn_submit_proposal(
+                bounds.lower, bounds.upper, self.stake, nonce, gasPrice)
             contract.send(txn, private_key)
 
         return send

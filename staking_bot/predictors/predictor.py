@@ -6,8 +6,7 @@ MIT License
 
 from abc import ABC, abstractmethod
 from collections import namedtuple
-
-from staking_bot_template.contracts import Proposal
+from staking_bot.contracts import Proposal, Bounds
 
 
 class Predictor(ABC):
@@ -28,4 +27,13 @@ class Predictor(ABC):
         Returns:
             An array of proposals that should be submitted ASAP
         '''
-        pass
+        return [
+            Proposal(
+                bounds=Bounds(
+                    lower=0,
+                    upper=1,
+                    are_inverted=False
+                ),
+                stake=10
+            )
+        ]

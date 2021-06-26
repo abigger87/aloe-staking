@@ -4,10 +4,10 @@ Aloe Capital LLC
 MIT License
 '''
 
-from staking_bot_template.predictors.predictor import Predictor
+from staking_bot.predictors.predictor import Predictor
 
-from staking_bot_template.contracts import Proposal
-from staking_bot_template.contracts import Bounds
+from staking_bot.contracts import Proposal
+from staking_bot.contracts import Bounds
 
 
 class Example(Predictor):

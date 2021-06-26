@@ -39,7 +39,7 @@ Create a file named `.env` in the same folder as this `README`. You can use the
 - `PREDICTIONS_CONTRACT_ADDRESS`: The predictions contract to which proposals will be sent
 - `TIME_ALLOTTED_FOR_SENDING`: The bot will start submitting proposals this many seconds before the end of the epoch
 
-> Note: The bot is configured for Kovan right now, so your Alchemy project should be associated with Kovan too. This is easy to change in [main.py](staking_bot_template/main.py), and you don't have to use Alchemy if you don't want to.
+> Note: The bot is configured for Kovan right now, so your Alchemy project should be associated with Kovan too. This is easy to change in [main.py](staking_bot/main.py), and you don't have to use Alchemy if you don't want to.
 
 ### Approving the contract
 
@@ -49,21 +49,21 @@ to transfer your ALOE. You can do this on Etherscan or in our web app.
 ### Running
 
 ```shell
-poetry run python staking_bot_template/main.py
+poetry run python staking_bot/main.py
 ```
 
 ## Adding your prediction algorithm
 
 Now comes the fun part! To write your own prediction algorithm, just implement the
-[`Predictor` interface](staking_bot_template/predictors/predictor.py). You can find an
-example implementation [here](staking_bot_template/predictors/example.py).
+[`Predictor` interface](staking_bot/predictors/predictor.py). You can find an
+example implementation [here](staking_bot/predictors/example.py).
 
-After you've added your logic, make sure to add a new line to [`__init__.py`](staking_bot_template/predictors/__init__.py),
-otherwise the rest of the code won't be able to find your algorithm. Now go to [main.py](staking_bot_template/main.py)
+After you've added your logic, make sure to add a new line to [`__init__.py`](staking_bot/predictors/__init__.py),
+otherwise the rest of the code won't be able to find your algorithm. Now go to [main.py](staking_bot/main.py)
 and import your predictor like so:
 
 ```python
-from staking_bot_template.predictors import MyPredictor
+from staking_bot.predictors import MyPredictor
 ```
 
 Then find the following lines and adjust them appropriately:
