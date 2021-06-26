@@ -1,4 +1,4 @@
-from staking_bot import __version__
+from staking_bot import __version__, main
 
 
 def test_version():

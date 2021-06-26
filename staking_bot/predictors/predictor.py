@@ -27,13 +27,4 @@ class Predictor(ABC):
         Returns:
             An array of proposals that should be submitted ASAP
         '''
-        return [
-            Proposal(
-                bounds=Bounds(
-                    lower=0,
-                    upper=1,
-                    are_inverted=False
-                ),
-                stake=10
-            )
-        ]
+        pass
